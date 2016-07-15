@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.uutech.www.opencartservice.repository.OrderMapper" >
+    <sql id="basicCols">id, ordernum</sql>
+    <resultMap id="allResultMap" type="Order" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="ordernum" property="ordernum" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="getByOrdernum" resultMap="allResultMap" parameterType="java.lang.String" >
+        SELECT <include refid="basicCols" />
+        FROM `order`
+        WHERE ordernum = #{ordernum,jdbcType=VARCHAR}
+    </select>
+</mapper>

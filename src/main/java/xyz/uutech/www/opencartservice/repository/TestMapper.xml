@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xyz.uutech.www.opencartservice.repository.TestMapper" >
+    <sql id="basicCols">id</sql>
+    <resultMap id="allResultMap" type="INTEGER" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+    </resultMap>
+
+    <select id="getList" resultMap="allResultMap" >
+        SELECT <include refid="basicCols" />
+        FROM `test`
+    </select>
+</mapper>
